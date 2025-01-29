@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp(name = "Drive")
-public class ControllerModeV2 extends LinearOpMode {
+public class Opmode extends LinearOpMode {
 
     public static class DriveWheels {
         DcMotor FrontL, BackL, FrontR, BackR;
