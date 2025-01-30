@@ -17,8 +17,8 @@ public class Opmode extends LinearOpMode {
             FrontR = opMode.hardwareMap.get(DcMotor.class, "FrontR");
             BackR = opMode.hardwareMap.get(DcMotor.class, "BackR");
 
-            FrontR.setDirection(DcMotorSimple.Direction.REVERSE);
-            BackR.setDirection(DcMotorSimple.Direction.REVERSE);
+            BackL.setDirection(DcMotorSimple.Direction.REVERSE);
+            FrontL.setDirection(DcMotorSimple.Direction.REVERSE);
         }
 
         public void setMotorPowers(double fl, double bl, double fr, double br) {
