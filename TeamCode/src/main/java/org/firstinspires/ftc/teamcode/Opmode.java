@@ -29,6 +29,29 @@ public class Opmode extends LinearOpMode {
         }
     }
 
+    public class Arm {
+        //declares motors and servos
+        private ServoMotor liftL, liftR, arm;
+        private Servo wrist;
+        private OpMode opmode;
+
+
+        public Arm(OpMode opmode) {
+            //init OpMode
+            this.opmode = opmode;
+            //init motors
+            liftL = opmode.hardwareMap.get(ServoMotor.class, "LiftL");
+            liftR = opmode.hardwareMap.get(ServoMotor.class, "LiftR");
+            liftR.setDirection(ServoMotorSimple.Direction.REVERSE);
+            arm = opmode.hardwareMap.get(ServoMotor.class, "Arm");
+            liftR.setMode(ServoMotor.RunMode.STOP_AND_RESET_ENCODER);
+            liftL.setMode(ServoMotor.RunMode.STOP_AND_RESET_ENCODER);
+            arm.setMode(ServoMotor.RunMode.STOP_AND_RESET_ENCODER);
+            //init the wrist
+            wrist = opmode.hardwareMap.get(Servo.class, "Wrist");
+        }
+    }
+
     @Override
     public void runOpMode() {
         DriveWheels driveWheels = new DriveWheels(this);
