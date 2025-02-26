@@ -4,6 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
+import org.firstinspires.ftc.ftccommon.internal.manualcontrol.responses.MotorTargetPosition;
 
 @TeleOp(name = "Drive")
 public class Opmode extends LinearOpMode {
@@ -31,25 +35,18 @@ public class Opmode extends LinearOpMode {
 
     public class Arm {
         //declares motors and servos
-        private ServoMotor liftL, liftR, arm;
         private Servo wrist;
         private OpMode opmode;
 
+        private MotorTargetPosition MTargetPos;
 
         public Arm(OpMode opmode) {
             //init OpMode
             this.opmode = opmode;
-            //init motors
-            liftL = opmode.hardwareMap.get(ServoMotor.class, "LiftL");
-            liftR = opmode.hardwareMap.get(ServoMotor.class, "LiftR");
-            liftR.setDirection(ServoMotorSimple.Direction.REVERSE);
-            arm = opmode.hardwareMap.get(ServoMotor.class, "Arm");
-            liftR.setMode(ServoMotor.RunMode.STOP_AND_RESET_ENCODER);
-            liftL.setMode(ServoMotor.RunMode.STOP_AND_RESET_ENCODER);
-            arm.setMode(ServoMotor.RunMode.STOP_AND_RESET_ENCODER);
-            //init the wrist
             wrist = opmode.hardwareMap.get(Servo.class, "Wrist");
         }
+        //update Pos later
+        private static final double WRIST_MIN_POSITION =
     }
 
     @Override
